@@ -1,0 +1,19 @@
+{
+  "name": "jenkins-sample-project",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larsthorup/jenkins-sample-project.git"
+  },
+  "keywords": [],
+  "author": "Lars Thorup <lars@zealake.com> (https://www.zealake.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
+  }
+}
