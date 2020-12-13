@@ -7,6 +7,7 @@ pipeline {
         stage('pr-status') {
             steps {
                 sh 'printenv'
+                sh 'node ./script/github-pr-status pending $GIT_COMMIT $BUILD_URL $BUILD_ID Jenkins'
             }
         }
         stage('install') {
@@ -24,10 +25,12 @@ pipeline {
         success {
             echo 'success'
             sh 'printenv'
+            sh 'node ./script/github-pr-status error $GIT_COMMIT $BUILD_URL $BUILD_ID Jenkins'
         }
         unsuccessful {
             echo 'unsuccessful'
             sh 'printenv'
+            sh 'node ./script/github-pr-status success $GIT_COMMIT $BUILD_URL $BUILD_ID Jenkins'
         }
     }
 }
