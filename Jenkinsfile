@@ -4,15 +4,15 @@ pipeline {
         GITHUB_ACCESS_TOKEN = credentials('GITHUB_ACCESS_TOKEN')
     }
     stages {
+        stage('install') {
+            steps {
+                sh 'npm install'
+            }
+        }
         stage('pr-status') {
             steps {
                 sh 'printenv'
                 sh 'node ./script/github-pr-status pending $GIT_COMMIT $BUILD_URL $BUILD_ID Jenkins'
-            }
-        }
-        stage('install') {
-            steps {
-                sh 'npm install'
             }
         }
         stage('test') {
