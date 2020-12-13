@@ -10,7 +10,7 @@ describe('math', function () {
       expect(Math.sqrt(15.99999999999999999)).to.equal(4);
     });
     it('should work for weird floats', function () {
-      expect(Math.sqrt(12.3456)).to.equal(3.51);
+      expect(Math.sqrt(12.3456)).to.be.closeTo(3.51, 0.01);
     })
   });
 });
