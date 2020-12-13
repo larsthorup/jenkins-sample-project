@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        GITHUB_ACCESS_KEY = credentials('GITHUB_ACCESS_KEY')
+        GITHUB_ACCESS_TOKEN = credentials('GITHUB_ACCESS_TOKEN')
     }
     stages {
         stage('pr-status') {
