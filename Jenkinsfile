@@ -37,12 +37,11 @@ pipeline {
       }
       emailext body: """
           <p>Commit: "${GIT_COMMIT_SUBJECT}" (${GIT_COMMIT_SHA}) by ${GIT_COMMIT_EMAIL}.</p>
-          <p>Branch: "${CHANGE_TITLE}" (${CHANGE_BRANCH}) by ${GIT_BRANCH_EMAIL}.</p>
+          <p>Branch: ${CHANGE_BRANCH} by ${GIT_BRANCH_EMAIL}.</p>
           <ul>
           <li><a href="${env.BUILD_URL}console">Log output</a></li>
           <li><a href="${env.BUILD_URL}artifact/e2e-test/output/screen/">Screen captures</a></li>
           <li><a href="${env.JOB_URL}">Jenkins PR Job: ${env.JOB_NAME}</a></li>
-          <li><a href="${env.CHANGE_URL}">GitHub PR: ${env.CHANGE_TITLE}</a></li>
           </ul>
           <p>Log output (last 100 lines):<hr><pre>\${BUILD_LOG, maxLines=100, escapeHtml=true}</pre></p>
         """,
