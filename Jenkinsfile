@@ -29,15 +29,9 @@ pipeline {
           script: 'git log -1 --no-merges --pretty="format:%h"',
           returnStdout: true
         ).trim()
-        // Note: author of first commit on this branch
-        GIT_BRANCH_EMAIL = sh (
-          script: 'git log origin/${CHANGE_TARGET}..HEAD --pretty="format:%ae" | tail -1',
-          returnStdout: true
-        ).trim()
       }
       emailext body: """
           <p>Commit: "${GIT_COMMIT_SUBJECT}" (${GIT_COMMIT_SHA}) by ${GIT_COMMIT_EMAIL}.</p>
-          <p>Branch: ${CHANGE_BRANCH} by ${GIT_BRANCH_EMAIL}.</p>
           <ul>
           <li><a href="${env.BUILD_URL}console">Log output</a></li>
           <li><a href="${env.BUILD_URL}artifact/e2e-test/output/screen/">Screen captures</a></li>
@@ -46,7 +40,7 @@ pipeline {
           <p>Log output (last 100 lines):<hr><pre>\${BUILD_LOG, maxLines=100, escapeHtml=true}</pre></p>
         """,
         subject: "Build ${currentBuild.result} - ${env.JOB_NAME} ${currentBuild.displayName}",
-        to: "${GIT_BRANCH_EMAIL}"
+        to: "${GIT_COMMIT_EMAIL}"
     }
   }
 }
