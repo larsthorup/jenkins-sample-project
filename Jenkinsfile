@@ -44,7 +44,7 @@ pipeline {
           <li><a href="${env.JOB_URL}">Jenkins PR Job: ${env.JOB_NAME}</a></li>
           <li><a href="${env.CHANGE_URL}">GitHub PR: ${env.CHANGE_TITLE}</a></li>
           </ul>
-          <p>Log output (last 100 lines):<hr><pre>${BUILD_LOG, maxLines=100, escapeHtml=true}</pre></p>
+          <p>Log output (last 100 lines):<hr><pre>\${BUILD_LOG, maxLines=100, escapeHtml=true}</pre></p>
         """,
         subject: "Build ${currentBuild.result} - ${env.JOB_NAME} ${currentBuild.displayName}",
         to: "${GIT_BRANCH_EMAIL}"
