@@ -30,12 +30,13 @@ pipeline {
           returnStdout: true
         ).trim()
       }
-      emailext body: '''
+      emailext body: """
           <p>Commit: "${GIT_COMMIT_SUBJECT}" (${GIT_COMMIT_SHA}) by ${GIT_COMMIT_EMAIL}.</p>
           <ul>
           <li><a href="${env.BUILD_URL}console">Log output</a></li>
           <li><a href="${env.JOB_URL}">Jenkins Job: ${env.JOB_NAME}</a></li>
           </ul>
+        """ + '''
           <p>Log output (last 100 lines):<hr><pre>${BUILD_LOG, maxLines=100, escapeHtml=true}</pre></p>
         ''',
         subject: "Build ${currentBuild.result} - ${env.JOB_NAME} ${currentBuild.displayName}",
