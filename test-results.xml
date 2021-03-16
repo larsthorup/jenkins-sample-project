@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.0000" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2021-03-16T08:51:54" tests="0" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="math" timestamp="2021-03-16T08:51:54" tests="0" file="C:\r\larsthorup\jenkins-sample-project\test\math.test.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="sqrt" timestamp="2021-03-16T08:51:54" tests="2" file="C:\r\larsthorup\jenkins-sample-project\test\math.test.js" time="0.0000" failures="0">
+    <testcase name="math sqrt should work for integers" time="0.0000" classname="should work for integers">
+    </testcase>
+    <testcase name="math sqrt should work for almost-integers" time="0.0000" classname="should work for almost-integers">
+    </testcase>
+  </testsuite>
+</testsuites>

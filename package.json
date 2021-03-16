@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test:ci": "mocha --no-color --reporter mocha-multi-reporters --reporter-options configFile=mocha-multi-reporters.config.json"
   },
   "repository": {
     "type": "git",
@@ -14,6 +15,8 @@
   "license": "MIT",
   "dependencies": {
     "chai": "^4.2.0",
-    "mocha": "^8.2.1"
+    "mocha": "^8.2.1",
+    "mocha-junit-reporter": "^2.0.0",
+    "mocha-multi-reporters": "^1.5.1"
   }
 }
